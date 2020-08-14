@@ -1,0 +1,13 @@
+<h1>All Posts</h1>
+
+{% for post in object_list %}
+
+<ul>
+  <li>Title: {{ post.title }}</li>
+  <li>Body: {{ post.body }}</li>
+  <li>Like: {{ post.like }}</li>
+</ul>
+
+<br>
+
+{% endfor %}
