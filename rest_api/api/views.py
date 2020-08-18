@@ -12,3 +12,6 @@ class DetailPostAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+# login(request, user)
+# LogTime.objects.create(user=request.user)
