@@ -1,7 +1,4 @@
 from django.contrib import admin
-from .models import Post, LogTime, likes
+from .models import Post
 
 admin.site.register(Post)
-admin.site.register(likes)
-
-admin.site.register(LogTime)
