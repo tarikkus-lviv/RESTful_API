@@ -1,7 +1,7 @@
 from rest_framework import generics, authentication
 from django.shortcuts import get_object_or_404
 from social_network.models import Post
-from .serializers import PostSerializer, DetailPostSerializer
+from .serializers import PostSerializer, DetailPostSerializer, PostLikeSerializer
 from .permissions import IsAuthorOrReadOnly
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -28,5 +28,4 @@ class PostLikeAPIToggle(APIView):
             post.likes.add(request.user)
             liked = True
 
-    queryset = Post.objects.all()
-    serializer_class = DetailPostSerializer
+    serializer_class = PostLikeSerializer
