@@ -16,26 +16,17 @@ class DetailPostAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = DetailPostSerializer
 
-
-# not actually working
 class PostLikeAPIToggle(APIView):
-    def get(self, request, pk, slug=None, Format=None):
-        obj = get_object_or_404(Post)
-        user = User
-        updated = False
+
+    def LikeView(request, pk):
+        post = get_object_or_404(Post, id=request.Post.get())
         liked = False
+        if post.likes.filter(id=request.user.id).exicts():
+            post.likes.remove(request.user)
+            liked = False
+        else:
+            post.likes.add(request.user)
+            liked = True
 
-        if user.is_authenticated:
-            if user in obj.likes.all():
-                liked = False
-                obj.likes.remove(user)
-            else:
-                liked = True
-                obj.likes.add(user)
-            updated = True
-        data = {
-            'updated':updated,
-            'liked':liked
-        }
-
-        return Response(data)
+    queryset = Post.objects.all()
+    serializer_class = DetailPostSerializer

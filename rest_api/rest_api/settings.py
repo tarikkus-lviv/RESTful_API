@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'likes',
 
 
     'social_network',
@@ -151,3 +152,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #needed for sites django framework
 SITE_ID = 1
+
+
+LIKES_MODELS = {
+    "app.Model": {
+        'serializer': 'rest_api.api.serializer.DetailPostSerializer'
+    },
+}
