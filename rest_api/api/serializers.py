@@ -7,16 +7,16 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'title', 'body', 'likes')
+        fields = ('id', 'author', 'title', 'body', 'post_date', 'likes')
 
 class DetailPostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('id', 'author', 'title', 'body', 'likes')
+        fields = ('id', 'author', 'title', 'body', 'post_date', 'likes')
 
 class PostLikeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Like
-        fields = ('id', 'post', 'value')
+        fields = ('id', 'user', 'post', 'value')

@@ -7,6 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     body = models.CharField(blank=True, max_length=250)
+    post_date = models.DateField(auto_now_add=True,  null=True)
     likes = models.ManyToManyField(User, blank=True, related_name='post_likes')
 
     def __str__(self):
